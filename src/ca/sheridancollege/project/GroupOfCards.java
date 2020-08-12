@@ -18,12 +18,13 @@ public class GroupOfCards
 {
    
     //The group of cards, stored in an ArrayList
-    private ArrayList <Card> cards;
+    private ArrayList<Card> cards;
     private int size;//the size of the grouping
     
     public GroupOfCards(int givenSize)
-    {
+    {   
         size = givenSize;
+        this.cards = new ArrayList<Card>(size);
     }
     
     /**
@@ -33,6 +34,17 @@ public class GroupOfCards
     public ArrayList<Card> showCards()
     {
         return cards;
+    }
+    public void displayCardsList() {
+        for (int i = 0; i < this.returnSize(); i ++) {
+            System.out.println((i + 1) + " : " + this.cards.get(i));
+        }
+    }
+    
+    public void displayCardsRankList() {
+        for (int i = 0; i < this.returnSize(); i ++) {
+            System.out.println((i + 1) + " : " + this.cards.get(i));
+        }
     }
     
     public void shuffle()
@@ -52,6 +64,24 @@ public class GroupOfCards
      */
     public void setSize(int givenSize) {
         size = givenSize;
+    }
+    
+    // custom classes
+    public void addCard(Card card) {
+        this.cards.add(card);
+    }
+    
+    public void removeCard(Card card) {
+        this.cards.remove(card);
+    }
+
+    // remove by index and return card
+    public Card remove(int index) {
+        return this.cards.remove(index);
+    }
+    
+    public int returnSize() {
+        return this.cards.size();
     }
     
 }//end class

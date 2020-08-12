@@ -1,7 +1,7 @@
 /**
  * SYST 17796 Project Winter 2020 Base code.
  * Students can modify and extend to implement their game.
- * Add your name as a modifier and the date!
+ * 
  */
 package ca.sheridancollege.project;
 
@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public abstract class Game 
 {
-    private final String gameName;//the title of the game
+    private String gameName;//the title of the game
     private ArrayList <Player> players;// the players of the game
     
     public Game(String givenName)
@@ -57,7 +57,16 @@ public abstract class Game
      * When the game is over, use this method to declare and display a winning
      * player.
      */
-    public abstract void declareWinner();
+    public abstract void declareWinner(ArrayList<Player> players);
+        
+    public void setGameName(String gameName) {
+        this.gameName = gameName;
+    }
+    
+    // adds player to arraylist
+    public void addPlayer(Player player) {
+        this.players.add(player);
+    }
 
    
     
